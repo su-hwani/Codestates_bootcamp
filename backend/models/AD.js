@@ -40,6 +40,11 @@ const AD_Schema = new mongoose.Schema({
     Expense: {
         type: Number
         //required:true
+    },
+    activation: {
+        type: Boolean,
+        //required: true,
+        // 중복가능, 활성화/비활성화 여부 
     }
 })
 

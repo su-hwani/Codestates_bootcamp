@@ -15,6 +15,21 @@ ad_router.get("/all", async (req, res)=>{
   console.log("정상작동")
 })
 
+ad_router.get("/find", async (req, res)=>{
+  await AD.findOne({ID: req.body.ID}).then(result=>{
+    if(!result){
+      return res.status(400).json({
+        status: 'error',
+        error: 'Can not find AD with using ID'
+      })
+    }
+    res.status(200).json({
+      status: success,
+      data: result
+    })
+  })
+})
+
 // input: 속성값 전체, output: string
 ad_router.post("/add", async (req, res)=>{
   const ad = new AD({
@@ -34,38 +49,61 @@ ad_router.post("/add", async (req, res)=>{
     Expense: req.body.Expense
   })
   await ad.save()
-  res.json("AD 등록 성공")
+  res.status(200).json({
+    status: success,
+    data: 'AD 추가 성공'
+  })
 })
 
 // input: ID, output: string
 ad_router.post("/modify", async (req, res)=>{
   await AD.findOne({ID: req.body.ID}).then(result=>{
     if(!result){
-      res.json("error")
+      return res.status(400).json({
+        status: error,
+        data: "Can not find AD with using ID"
+      })
     }
     result.updateOne({ID: req.body.ID}, {$set: {text_short: req.body.text_short, text_long: req.body.text_long}})
-    res.json("AD 수정 성공")
+    res.status(200).json({
+      status: "success",
+      data: "AD 수정 성공"})
   })
 })
 
 // input: ID, output: string
 ad_router.post("/delete", async (req, res)=>{
-  await AD.findOne({ID: req.body.ID}).then(result=>{
+  await AD.findOneAndUpdate(
+    {ID: req.body.ID},
+    {$push: {activation: false}},
+    {new: true}
+  ).then(result=>{
     if(!result){
-      res.json("error")
+      return res.status(400).json({
+        status: "error",
+        data: "Can not find AD with using ID"
+      })
     }
-    result.deleteOne({ID: req.body.ID})
-    res.json("AD 삭제 성공")
+    res.status(200).json({
+      status: "success",
+      data: "AD 삭제 성공"
+    })
   })
 })
 
-// input: ID, output: object
+// input: ID, output: AD object
 ad_router.get("/detail", async (req, res)=>{
   await AD.findOne({ID: req.body.ID}).then(result=>{
     if(!result){
-      res.json("error")
+      return res.status(400).json({
+        status: "error",
+        data: "Can not find AD with using ID"
+      })
     }
-    res.json(result) // 이게 되는지 모르겠다. 
+    res.status(200).json({
+      status: "success",
+      data: result
+    })
   })
 })
 
