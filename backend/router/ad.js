@@ -18,7 +18,7 @@ const ad_router = express.Router()
 ad_router.get("/all", async (req, res)=>{
   const ad = await AD.find() 
   res.status(200).json(
-    json_format(200)
+    json_format(200, ad)
   )
 })
 
