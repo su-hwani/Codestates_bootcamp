@@ -5,6 +5,10 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import { AD } from "./models/AD.js"
 
+import { AD } from "./models/AD.js"
+import ad_router from "./router/ad.js"
+import test_router from "./router/test.js"
+
 const port = 8080
 const app = express()
 app.use(express.json())
@@ -23,18 +27,7 @@ mongoose
 app.listen(port)
 console.log(`server running at http ${port}\n`)
 
-app.get("/", async (req, res)=>{
-  const ad = new AD({
-    ID:"dummy",
-  })
-  await ad.save()
-  console.log("성공")
-  res.send(ad)
-})
 
-app.get("/ad", async (req, res)=>{
-  const ad = await AD.findOne({ID:"yummy"}).then((result)=>{
-    res.send(result)
-  })
-})
+app.use("/ad", ad_router)
+app.use("/test", test_router)
 
