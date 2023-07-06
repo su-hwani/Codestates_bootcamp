@@ -3,7 +3,7 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import nodemon from 'nodemon'
+import { AD } from "./models/AD.js"
 
 import { AD } from "./models/AD.js"
 import ad_router from "./router/ad.js"
@@ -27,5 +27,7 @@ mongoose
 app.listen(port)
 console.log(`server running at http ${port}\n`)
 
+
 app.use("/ad", ad_router)
 app.use("/test", test_router)
+

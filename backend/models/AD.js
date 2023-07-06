@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const AD_Schema = new mongoose.Schema({
+export const AD = mongoose.model("AD", AD_Schema)
     ID: {
         type: Number,
         //unique: true,
