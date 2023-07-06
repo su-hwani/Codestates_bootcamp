@@ -2,9 +2,12 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import axios from 'axios'
 import nodemon from 'nodemon'
 
 import { AD } from "../models/AD.js"
+import { COUNTER_test } from "../models/COUNTER_test.js"
+
 
 const ad_router = express.Router()
 
@@ -35,43 +38,56 @@ ad_router.post("/find", async (req, res)=>{
   })
 })
 
+ad_router.get("/counter", async (req, res) => {
+
+  await COUNTER_test.findOne().then(result=>{
+    if(!result){
+      const counter = new COUNTER_test({})
+      counter.save()
+      return res.status(200).json({
+        status: 'success',
+        statusText: 'OK',
+        data: { counter }
+      })
+    }
+    const counter = result
+    counter.count += 1
+    counter.save()
+    return res.status(200).json({
+      status: 'success',
+      statusText: 'OK',
+      data: { counter }
+    })
+  })
+})
+
 // input: 속성값 전체, output: string
 // AD 를 추가하기
 ad_router.post("/add", async (req, res) => {
   try {
-    const existingAd = await AD.findOne({ ID: req.body.ID })
-    if (existingAd) {
-      return res.status(400).json({
-        status: 'error',
-        statusText: 'already Exist'
+    await axios.get('http://localhost:8080/ad/counter',{
+    }).then(async (result)=> {
+      const ad = new AD({
+        ID: result.data.data.counter.count,
+        size: req.body.size,
+        title: req.body.title,
+        text: req.body.text,
+        URL: req.body.URL,
+        count: req.body.count,
+        format: req.body.format,
+        byte: req.body.byte,
+        start_exp: req.body.start_exp,
+        end_exp: req.body.end_exp,
+        reg: req.body.reg,
+        Contract_ID: req.body.Contract_ID,
+        Expense: req.body.Expense
       })
-    }
-    if (!req.body.ID || !req.body.size || !req.body.start_exp || !req.body.end_exp || !req.body.reg || !req.body.Contract_ID || !req.body.Expense) {
-      return res.status(400).json({
-        status: 'error',
-        statusText: 'missing attribute'
+      await ad.save()
+      return res.status(200).json({
+        status: "success",
+        statusText: "AD 생성 성공",
+        data: { ad }
       })
-    }
-    const ad = new AD({
-      ID: req.body.ID,
-      size: req.body.size,
-      title: req.body.title,
-      text: req.body.text,
-      URL: req.body.URL,
-      count: req.body.count,
-      format: req.body.format,
-      byte: req.body.byte,
-      start_exp: req.body.start_exp,
-      end_exp: req.body.end_exp,
-      reg: req.body.reg,
-      Contract_ID: req.body.Contract_ID,
-      Expense: req.body.Expense
-    })
-    await ad.save()
-    res.status(200).json({
-      status: "success",
-      statusText: "AD 생성 성공",
-      data: { result: ad }
     })
   } catch (error) {
     res.status(400).json({

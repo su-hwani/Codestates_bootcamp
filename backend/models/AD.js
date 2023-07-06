@@ -45,7 +45,7 @@ const AD_Schema = new mongoose.Schema({
         type: Boolean,
         //required: true,
         // 중복가능, 활성화/비활성화 여부 
-    }
+    },
 })
 
 export const AD = mongoose.model("AD", AD_Schema)
