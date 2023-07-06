@@ -11,9 +11,6 @@ export { find_AD, find_COUNTER}
 
 async function find_AD(ID) {
     const result = await AD.findOne({ID: ID})
-    if(!result){
-        return null
-    }
     return result
 } 
 
