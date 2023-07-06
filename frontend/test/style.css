@@ -1,0 +1,158 @@
+:root {
+    /*color*/
+    --color-white: #ffffff;
+    --color-light-white:#eeeeee;
+    --color-dark-white:#bdbdbd;
+    --color-pink: #fe918d;
+    --color-dark-pink:#ff6863;
+    --color-dark-grey:#4d4d4d;
+    --color-grey: #616161;
+    --color-light-grey: #c1c0c0;
+    --color-blue: #73aace;
+    --color-yellow: #fff7d1;
+    --color-orange: #feb546;
+    --color-black: #000000;
+    --color-green: #05e67d;
+
+    /* Font size */
+    --font-large: 48px;
+    --font-medium: 28px;
+    --font-regular: 18px;
+    --font-small: 16px;
+    --font-micro: 14px;
+
+    /* Font weight */
+    --weight-bold: 700;
+    --weight-semi-bold: 600;
+    --weight-regular: 400;
+
+}
+#test,#add{
+    color:var(--color-white);
+    display: inline;
+    width:50%;
+    border-radius: 20px;
+}
+#test{
+    background-color: var(--color-dark-pink);
+}
+#add{
+    background-color: var(--color-orange);
+}
+
+/* searchs컨테이너 */
+#search-type{
+    display:inline;
+    width:30%;
+    position: relative;
+}
+#search-enter{
+    display:inline;
+    width:50%;
+    position: relative;
+}
+#search{
+    color:var(--color-white);
+    background-color: var(--color-green);
+    display:inline;
+    width:20%;
+    position: relative;
+}
+
+
+.top,.searchs{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom:20px;
+}
+
+/* 표 목록 */
+#category{
+    background-color: var(--color-light-grey);
+}
+/* 표 버튼 */
+.detail-bttn.btn.btn-outline.danger{
+    background-color: var(--color-light-grey);
+}
+.update-bttn.btn.btn-outline.danger{
+    background-color: var(--color-green);
+}
+
+.delete-bttn.btn.btn-outline.danger{
+    background-color: var(--color-dark-pink);
+}
+.detail-bttn,.delete-bttn,.update-bttn{
+    color:var(--color-black);
+}
+
+/*레이어 팝업 기본설정*/
+#addAD,#updateAD,#deleteAD,#testAD,#searchAD{
+    display: none;
+    position: absolute;
+    top:200px; z-index: 6000;left: 495px;
+    width: 550px; height: 300px;
+}
+#deleteAD{
+    justify-content: center;
+}
+.card.card-warning{
+    text-align: center;
+    width:250px;
+    padding-bottom: 15px;
+}
+.card-bttns{
+    margin: 0 auto;
+}
+#searchAD{
+    position: absolute;
+    left:350px;
+    top:40px;
+}
+
+/*AD Test*/
+#searchBox{
+    margin: 0 auto;
+    left: 45px;
+}
+
+/*image넣기*/
+.searchImg
+{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  border-color: var(--color-light-grey);
+}
+
+.searchImg img
+{
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+}
+
+/*search*/
+#searchAD .card-header{
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+#searchAD .card.card-primary{
+    border: 3px solid;
+    border-color:var(--color-blue);
+    color: var(--color-black);
+}
+
+#testAD button{
+    background-color: var(--color-blue);
+    color: var(--color-white);
+}
+
