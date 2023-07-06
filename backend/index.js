@@ -3,7 +3,6 @@ import express from 'express'
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import nodemon from 'nodemon'
 import { AD } from "./models/AD.js"
 
 const port = 8080
@@ -34,7 +33,8 @@ app.get("/", async (req, res)=>{
 })
 
 app.get("/ad", async (req, res)=>{
-  const ad = await AD.findOne({ID:"yammy"}).then(result=>{
+  const ad = await AD.findOne({ID:"yummy"}).then((result)=>{
     res.send(result)
   })
 })
+
