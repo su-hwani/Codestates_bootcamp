@@ -35,7 +35,7 @@ function addADs(){
         </button>
         <button
           class="delete-bttn btn btn-outline danger"
-          type="button" onclick="delete()"
+          type="button" onclick="del()"
         >
           삭제
         </button>
