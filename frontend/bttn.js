@@ -4,11 +4,6 @@ const updateAD = document.querySelector("#updateAD");
 const deleteAD = document.querySelector("#deleteAD");
 const searchAD = document.querySelector('#searchAD');
 
-const table = document.querySelector('#table');
-
-
-const updateBttn = document.querySelectorAll('.update-bttn');
-const deleteBttn = document.querySelectorAll('.delete-bttn');
 const cancelBttn= document.querySelector('.cancel-bttn');
 /*add AD, AD Test클릭 이벤트*/
 function add() {
@@ -51,13 +46,13 @@ function cancel(){
 
 
 
- deleteBttn.forEach(function (btn) {
-    btn.addEventListener("click", function () {
+ function del(){
         updateAD.style.display = "none";
         addAD.style.display = "none";
         deleteAD.style.display = "block";
-    });
-  });
+        searchAD.style.display = "none";
+        testAD.style.display = "none";
+ }
 
   cancelBttn.addEventListener("click",function(){
     event.preventDefault();
