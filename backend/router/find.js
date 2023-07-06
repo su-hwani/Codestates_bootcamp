@@ -21,13 +21,14 @@ async function find_COUNTER() {
     const result = await COUNTER_test.findOne()
 
     if(!result){
-    const counter = new COUNTER_test({})
-    counter.save()
-    return counter
+        const counter = new COUNTER_test({})
+        counter.save()
+        return counter
     }
 
     const counter = result
     counter.count += 1
     counter.save()
+
     return counter
 }
