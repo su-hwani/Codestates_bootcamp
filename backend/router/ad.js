@@ -5,6 +5,8 @@ import dotenv from 'dotenv'
 import axios from 'axios'
 import nodemon from 'nodemon'
 
+
+import { find_AD, find_COUNTER } from "./find.js"
 import { AD } from "../models/AD.js"
 import { COUNTER_test } from "../models/COUNTER_test.js"
 
@@ -23,7 +25,7 @@ ad_router.get("/all", async (req, res)=>{
 
 // ID 를 기준으로 특정 AD 가져오기
 ad_router.post("/find", async (req, res)=>{
-  await AD.findOne({ID: req.body.ID}).then(result=>{
+  await find_AD(req.body.ID).then(result=>{
     if(!result){
       return res.status(400).json({
         status: 'error',
@@ -39,27 +41,15 @@ ad_router.post("/find", async (req, res)=>{
 })
 
 ad_router.get("/counter", async (req, res) => {
+  const counter = await find_COUNTER()
+  return res.status(200).json({
+    status: 'success',
+    statusText: 'OK',
+    data: { counter}
 
-  await COUNTER_test.findOne().then(result=>{
-    if(!result){
-      const counter = new COUNTER_test({})
-      counter.save()
-      return res.status(200).json({
-        status: 'success',
-        statusText: 'OK',
-        data: { counter }
-      })
-    }
-    const counter = result
-    counter.count += 1
-    counter.save()
-    return res.status(200).json({
-      status: 'success',
-      statusText: 'OK',
-      data: { counter }
-    })
   })
 })
+
 
 // input: 속성값 전체, output: string
 // AD 를 추가하기
@@ -100,7 +90,7 @@ ad_router.post("/add", async (req, res) => {
 // input: ID, output: string
 // ID를 기준으로 특정 AD 정보 수정하기
 ad_router.post("/modify", async (req, res)=>{
-  await AD.findOne({ID: req.body.ID}).then(result=>{
+  await find_AD(req.body.ID).then(result=>{
     if(!result){
       return res.status(400).json({
         status: 'error',
@@ -140,7 +130,7 @@ ad_router.post("/delete", async (req, res)=>{
 // input: ID, output: AD object
 // ID 를 기준으로 특정 AD 가져오기 -> Find 와 겹침, 리팩토링 필요
 ad_router.get("/detail", async (req, res)=>{
-  await AD.findOne({ID: req.body.ID}).then(result=>{
+  await find_AD(req.body.ID).then(result=>{
     if(!result){
       return res.status(400).json({
         status: 'error',
