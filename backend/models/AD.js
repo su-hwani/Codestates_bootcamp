@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-export const AD = mongoose.model("AD", AD_Schema)
+const AD_Schema = new mongoose.Schema({
     ID: {
         type: Number,
         //unique: true,
@@ -43,6 +43,7 @@ export const AD = mongoose.model("AD", AD_Schema)
     },
     activation: {
         type: Boolean,
+        default: true
         //required: true,
         // 중복가능, 활성화/비활성화 여부 
     },

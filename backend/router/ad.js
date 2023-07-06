@@ -5,7 +5,7 @@ import dotenv from 'dotenv'
 import axios from 'axios'
 import nodemon from 'nodemon'
 
-import { find_AD, find_COUNTER } from "./find.js"
+import { find_AD, find_COUNTER, chkActivation } from "./find.js"
 import { json_format } from "./json_format.js"
 
 import { AD } from "../models/AD.js"
@@ -16,7 +16,7 @@ const ad_router = express.Router()
 // input: ID, ouput: string
 // 전체 AD 가져오기
 ad_router.get("/all", async (req, res)=>{
-  const ad = await AD.find() 
+  const ad = await AD.find({activation:true}) 
   res.status(200).json(
     json_format(200, ad)
   )
@@ -24,17 +24,22 @@ ad_router.get("/all", async (req, res)=>{
 
 // ID 를 기준으로 특정 AD 가져오기
 ad_router.post("/find", async (req, res)=>{
-  await find_AD(req.body.ID).then(result=>{
-    if(!result){
-      return res.status(404).json(
-        json_format(404)
-      )
-    }
-    res.status(200).json(
-      json_format(200, result )
+  const result = await find_AD(req.body.ID)
+  if(!result){
+    return res.status(404).json(
+      json_format(404)
     )
-  })
+  }else if(!chkActivation(result)){
+    return res.status(403).json(
+      json_format(403)
+    )
+  }else{
+    return res.status(200).json(
+      json_format(200)
+    )
+  }
 })
+
 
 ad_router.get("/counter", async (req, res) => {
   const counter = await find_COUNTER()
@@ -76,7 +81,8 @@ ad_router.post("/add", async (req, res) => {
         end_exp: req.body.end_exp,
         reg: req.body.reg,
         Contract_ID: req.body.Contract_ID,
-        Expense: req.body.Expense
+        Expense: req.body.Expense,
+        activation: req.body.activation,
       })
       await ad.save()
       return res.status(200).json(
