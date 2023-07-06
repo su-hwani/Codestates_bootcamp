@@ -21,426 +21,368 @@
     />
   </head>
   <body>
-    <section>
-      <div class="top">
-        <button
-          id="add"
-          type="button"
-          onclick="add()"
-          class="btn btn-outline danger"
-        >
-          ADD AD
-        </button>
-        <button
-          id="test"
-          onclick="test()"
-          type="button"
-          class="btn btn-outline danger"
-        >
-          AD TEST
-        </button>
-      </div>
-    </section>
-    <section>
-      <div class="searchs">
-        <input
-          id="search-type"
-          type="text"
-          class="form-control"
-          placeholder="검색타입"
-        />
-        <input
-          id="search-enter"
-          type="text"
-          class="form-control"
-          placeholder="검색어 입력"
-        />
-        <button id="search" type="button" class="btn btn-outline danger">
-          검색
-        </button>
-      </div>
-    </section>
+      <section>
+          <div class="top">
+              <button id="add"
+                      type="button"
+                      onclick="add()"
+                      class="btn btn-outline danger">
+                  ADD AD
+              </button>
+              <button id="test"
+                      onclick="test()"
+                      type="button"
+                      class="btn btn-outline danger">
+                  AD TEST
+              </button>
+          </div>
+      </section>
+      <section>
+          <div class="searchs">
+              <input id="search-type"
+                     type="text"
+                     class="form-control"
+                     placeholder="검색타입" />
+              <input id="search-enter"
+                     type="text"
+                     class="form-control"
+                     placeholder="검색어 입력" />
+              <button id="search" type="button" class="btn btn-outline danger">
+                  검색
+              </button>
+          </div>
+      </section>
 
-    <!-- ###팝업창 섹션### -->
-    <section id="addAD">
-      <div class="card card-info">
-        <div class="card-header">
-          <h3 class="card-title">ADD AD</h3>
-        </div>
-        <form class="form-horizontal">
-          <div class="card-body">
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">idx</label>
-              <div class="col-sm-10">
-                <input type="text" id = "addIdx" class="form-control" placeholder="idx" />
+      <!-- ###팝업창 섹션### -->
+      <section id="addAD">
+          <div class="card card-info">
+              <div class="card-header">
+                  <h3 class="card-title">ADD AD</h3>
               </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Title</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addTitle"
-                  placeholder="Title"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Text</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addText"
-                  placeholder="Text"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"
-                >Exposure datetime</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addExposure"
-                  placeholder="Exposure datetime"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Count</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addCount"
-                  placeholder="Count"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"
-                >Regdate</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="addRegdate"
-                  placeholder="Regdate"
-                />
-              </div>
-            </div>
-          </div>
+              <form class="form-horizontal">
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">idx</label>
+                          <div class="col-sm-10">
+                              <input type="text" id="addIdx" class="form-control" placeholder="idx" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Title</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="addTitle"
+                                     placeholder="Title" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Text</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="addText"
+                                     placeholder="Text" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Exposure datetime</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="addExposure"
+                                     placeholder="Exposure datetime" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Count</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="addCount"
+                                     placeholder="Count" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Regdate</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="addRegdate"
+                                     placeholder="Regdate" />
+                          </div>
+                      </div>
+                  </div>
 
-          <div class="card-footer">
-            <button type="submit" class="btn btn-info" onclick="addADs()">ADD</button>
-            <button
-              type="submit"
-              class="btn btn-default float-right cancel-bttn"
-              sytle="color:#ff6863;"
-            >
-              Cancel
-            </button>
+                  <div class="card-footer">
+                      <button type="submit" class="btn btn-info" onclick="addADs()">ADD</button>
+                      <button type="submit"
+                              class="btn btn-default float-right cancel-bttn"
+                              sytle="color:#ff6863;">
+                          Cancel
+                      </button>
+                  </div>
+              </form>
           </div>
-        </form>
-      </div>
-    </section>
-    <section id="testAD">
-      <div class="card card-outline card-primary">
-        <div class="card-header text-center">
-          <h1 class="h1"><b>Ad Test</b></h1>
-        </div>
-        <div class="card-body">
-          <p class="login-box-msg">Input ad's idx!</p>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="idx" />
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span><i class="fa-solid fa-magnifying-glass"></i></span>
-                </div>
+      </section>
+      <section id="testAD">
+          <div class="card card-outline card-primary">
+              <div class="card-header text-center">
+                  <h1 class="h1"><b>Ad Test</b></h1>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-4" id="searchBox">
-                <button onclick="search()" class="btn btn-outline danger">
-                  Search
-                </button>
-                <button class="btn btn-outline danger">
-                    Cancel
-                </button>
+              <div class="card-body">
+                  <p class="login-box-msg">Input ad's idx!</p>
+                  <div class="input-group mb-3">
+                      <input type="text" class="form-control" placeholder="idx" />
+                      <div class="input-group-append">
+                          <div class="input-group-text">
+                              <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-4" id="searchBox">
+                          <button onclick="search()" class="btn btn-outline danger">
+                              Search
+                          </button>
+                          <button class="btn btn-outline danger">
+                              Cancel
+                          </button>
+                      </div>
+                  </div>
               </div>
-            </div>
-        </div>
-      </div>
-    </section>
-    <section id="searchAD">
-        <div class="card card-primary">
-            <div class="card-header">
-            <h3 class="card-title">AD Test</h3>
-            </div>
-            <div class="card-body">
-                <div class="form-group">
-                    <label>Image Viewer</label><br>
-                    <div class="searchImg">
-                    <img src='https://picsum.photos/70/70'/>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>Result</label>
-                    <textarea class="form-control" rows="3" placeholder="Json string"></textarea>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="updateAD">
-      <div class="card card-info">
-        <div class="card-header">
-          <h3 class="card-title">UPDATE AD</h3>
-        </div>
-        <form class="form-horizontal">
-          <div class="card-body">
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">idx</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" placeholder="idx" />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Title</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="title"
-                  placeholder="Title"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Text</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="text"
-                  placeholder="Text"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"
-                >Exposure datetime</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="exposure"
-                  placeholder="Exposure datetime"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Count</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="count"
-                  placeholder="Count"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label"
-                >Regdate</label
-              >
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="regdate"
-                  placeholder="Regdate"
-                />
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-sm-2 col-form-label">Action</label>
-              <div class="col-sm-10">
-                <input
-                  type="text"
-                  class="form-control"
-                  id="action"
-                  placeholder="Action"
-                />
-              </div>
-            </div>
           </div>
+      </section>
+      <section id="searchAD">
+          <div class="card card-primary">
+              <div class="card-header">
+                  <h3 class="card-title">AD Test</h3>
+              </div>
+              <div class="card-body">
+                  <div class="form-group">
+                      <label>Image Viewer</label><br>
+                      <div class="searchImg">
+                          <img src='https://picsum.photos/70/70' />
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label>Result</label>
+                      <textarea class="form-control" rows="3" placeholder="Json string"></textarea>
+                  </div>
+              </div>
+          </div>
+      </section>
+      <section id="updateAD">
+          <div class="card card-info">
+              <div class="card-header">
+                  <h3 class="card-title">UPDATE AD</h3>
+              </div>
+              <form class="form-horizontal">
+                  <div class="card-body">
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">idx</label>
+                          <div class="col-sm-10">
+                              <input type="text" class="form-control" placeholder="idx" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Title</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="title"
+                                     placeholder="Title" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Text</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="text"
+                                     placeholder="Text" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Exposure datetime</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="exposure"
+                                     placeholder="Exposure datetime" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Count</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="count"
+                                     placeholder="Count" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Regdate</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="regdate"
+                                     placeholder="Regdate" />
+                          </div>
+                      </div>
+                      <div class="form-group row">
+                          <label class="col-sm-2 col-form-label">Action</label>
+                          <div class="col-sm-10">
+                              <input type="text"
+                                     class="form-control"
+                                     id="action"
+                                     placeholder="Action" />
+                          </div>
+                      </div>
+                  </div>
 
-          <div class="card-footer">
-            <button type="submit" class="btn btn-info">UPDATE</button>
-            <button
-              type="submit"
-              class="btn btn-default float-right"
-              sytle="color:#ff6863;"
-              onclick="cancel()"
-            >
-              Cancel
-            </button>
+                  <div class="card-footer">
+                      <button type="submit" class="btn btn-info">UPDATE</button>
+                      <button type="submit"
+                              class="btn btn-default float-right"
+                              sytle="color:#ff6863;"
+                              onclick="cancel()">
+                          Cancel
+                      </button>
+                  </div>
+              </form>
           </div>
-        </form>
-      </div>
-    </section>
-    <section id="deleteAD">
-      <div class="col-md-3" id="deletePop">
-        <div class="card card-warning">
-          <div class="card-header">
-            <h3 class="card-title">Remove!</h3>
+      </section>
+      <section id="deleteAD">
+          <div class="col-md-3" id="deletePop">
+              <div class="card card-warning">
+                  <div class="card-header">
+                      <h3 class="card-title">Remove!</h3>
+                  </div>
+                  <div class="card-body">AD를 삭제 하시겠습니까?</div>
+                  <div class="card-bttns">
+                      <button>예</button>
+                      <button>아니오</button>
+                  </div>
+              </div>
           </div>
-          <div class="card-body">AD를 삭제 하시겠습니까?</div>
-          <div class="card-bttns">
-            <button>예</button>
-            <button>아니오</button>
+      </section>
+      <section id="detailAD"></section>
+      <!-- ########### -->
+      <!-- 데이터 테이블 -->
+      <section id="table">
+          <div class="col-12">
+              <div class="card">
+                  <div class="card-body table-responsive p-0">
+                      <table class="table table-hover text-nowrap">
+                          <thead>
+                              <tr id="category">
+                                  <th>idx</th>
+                                  <th>title</th>
+                                  <th>text</th>
+                                  <th>Exposure datetime</th>
+                                  <th>count</th>
+                                  <th>regdate</th>
+                                  <th>action</th>
+                              </tr>
+                          </thead>
+                          <tbody id="board">
+                              <tr>
+                                  <td>183</td>
+                                  <td>John Doe</td>
+                                  <td>11-7-2014</td>
+                                  <td><span class="tag tag-success">Approved</span></td>
+                                  <td>
+                                      Bacon ipsum dolor sit amet salami venison chicken flank
+                                      fatback doner.
+                                  </td>
+                                  <td>2020-03-04</td>
+                                  <td>
+                                      <span>
+                                          <button class="detail-bttn btn btn-outline danger"
+                                                  type="button">
+                                              상세
+                                          </button>
+                                          <button class="update-bttn btn btn-outline danger"
+                                                  type="button" onclick="update()">
+                                              수정
+                                          </button>
+                                          <button class="delete-bttn btn btn-outline danger"
+                                                  type="button"
+                                                  onclick="del()">
+                                              삭제
+                                          </button>
+                                      </span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>219</td>
+                                  <td>Alexander Pierce</td>
+                                  <td>11-7-2014</td>
+                                  <td><span class="tag tag-warning">Pending</span></td>
+                                  <td>
+                                      Bacon ipsum dolor sit amet salami venison chicken flank
+                                      fatback doner.
+                                  </td>
+                                  <td>2020-03-04</td>
+                                  <td>
+                                      <span>
+                                          <button class="detail-bttn btn btn-outline danger"
+                                                  type="button">
+                                              상세
+                                          </button>
+                                          <button class="update-bttn btn btn-outline danger"
+                                                  type="button"
+                                                  onclick="update()">
+                                              수정
+                                          </button>
+                                          <button class="delete-bttn btn btn-outline danger"
+                                                  type="button"
+                                                  onclick="del()">
+                                              삭제
+                                          </button>
+                                      </span>
+                                  </td>
+                              </tr>
+                              <tr>
+                                  <td>657</td>
+                                  <td>Bob Doe</td>
+                                  <td>11-7-2014</td>
+                                  <td><span class="tag tag-primary">Approved</span></td>
+                                  <td>
+                                      Bacon ipsum dolor sit amet salami venison chicken flank
+                                      fatback doner.
+                                  </td>
+                                  <td>2020-03-04</td>
+                                  <td>
+                                      <span>
+                                          <button class="detail-bttn btn btn-outline danger"
+                                                  type="button">
+                                              상세
+                                          </button>
+                                          <button class="update-bttn btn btn-outline danger"
+                                                  type="button"
+                                                  onclick="update()">
+                                              수정
+                                          </button>
+                                          <button class="delete-bttn btn btn-outline danger"
+                                                  type="button"
+                                                  onclick="del()">
+                                              삭제
+                                          </button>
+                                      </span>
+                                  </td>
+                              </tr>
+
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
           </div>
-        </div>
-      </div>
-    </section>
-    <section id="detailAD"></section>
-    <!-- ########### -->
-    <!-- 데이터 테이블 -->
-    <section id="table">
-      <div class="col-12">
-        <div class="card">
-          <div class="card-body table-responsive p-0">
-            <table class="table table-hover text-nowrap">
-              <thead>
-                <tr id="category">
-                  <th>idx</th>
-                  <th>title</th>
-                  <th>text</th>
-                  <th>Exposure datetime</th>
-                  <th>count</th>
-                  <th>regdate</th>
-                  <th>action</th>
-                </tr>
-              </thead>
-              <tbody id="board">
-                <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="tag tag-success">Approved</span></td>
-                  <td>
-                    Bacon ipsum dolor sit amet salami venison chicken flank
-                    fatback doner.
-                  </td>
-                  <td>2020-03-04</td>
-                  <td>
-                    <span
-                      ><button
-                        class="detail-bttn btn btn-outline danger"
-                        type="button"
-                      >
-                        상세
-                      </button>
-                      <button
-                        class="update-bttn btn btn-outline danger"
-                        type="button" onclick="update()"
-                      >
-                        수정
-                      </button>
-                      <button
-                        class="delete-bttn btn btn-outline danger"
-                        type="button"
-                        onclick="del()"
-                      >
-                        삭제
-                      </button>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>219</td>
-                  <td>Alexander Pierce</td>
-                  <td>11-7-2014</td>
-                  <td><span class="tag tag-warning">Pending</span></td>
-                  <td>
-                    Bacon ipsum dolor sit amet salami venison chicken flank
-                    fatback doner.
-                  </td>
-                  <td>2020-03-04</td>
-                  <td>
-                    <span
-                      ><button
-                        class="detail-bttn btn btn-outline danger"
-                        type="button"
-                      >
-                        상세
-                      </button>
-                      <button
-                        class="update-bttn btn btn-outline danger"
-                        type="button"
-                        onclick="update()"
-                      >
-                        수정
-                      </button>
-                      <button
-                        class="delete-bttn btn btn-outline danger"
-                        type="button"
-                        onclick="del()"
-                      >
-                        삭제
-                      </button>
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td>657</td>
-                  <td>Bob Doe</td>
-                  <td>11-7-2014</td>
-                  <td><span class="tag tag-primary">Approved</span></td>
-                  <td>
-                    Bacon ipsum dolor sit amet salami venison chicken flank
-                    fatback doner.
-                  </td>
-                  <td>2020-03-04</td>
-                  <td>
-                    <span
-                      ><button
-                        class="detail-bttn btn btn-outline danger"
-                        type="button"
-                      >
-                        상세
-                      </button>
-                      <button
-                        class="update-bttn btn btn-outline danger"
-                        type="button"
-                        onclick="update()"
-                      >
-                        수정
-                      </button>
-                      <button
-                        class="delete-bttn btn btn-outline danger"
-                        type="button"
-                        onclick="del()"
-                      >
-                        삭제
-                      </button>
-                    </span>
-                  </td>
-                </tr>
-                
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="bttn.js" charset="utf-8"></script>
-    <script src="controll.js" charset="utf-8"></script>
+      </section>
+      <script src="bttn.js" charset="utf-8"></script>
+      <script src="controll.js" charset="utf-8"></script>
+      <script src="./button/add.js" charset="utf-8"></script>
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   </body>
 </html>
