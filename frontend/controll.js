@@ -1,6 +1,6 @@
 const board = document.getElementById('board');
 
-function addADs(){
+function addADs() {
     var idx = document.getElementById('addIdx').value;
     var title = document.getElementById('addTitle').value;
     var text = document.getElementById('addText').value;
@@ -10,7 +10,7 @@ function addADs(){
     console.log(idx);
     event.preventDefault();
     board.innerHTML
-    += `<tr>
+        += `<tr>
     <td></td>
     <td>${title}</td>
     <td>${text}</td>
@@ -42,4 +42,6 @@ function addADs(){
       </span>
     </td>
   </tr>`;
+
+    addClick();
 }
