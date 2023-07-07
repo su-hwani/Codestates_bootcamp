@@ -16,15 +16,16 @@ const ad_router = express.Router()
 // input: ID, ouput: string
 // 전체 AD 가져오기
 ad_router.get("/all", async (req, res)=>{
-  const ad = await AD.find({activation:true}) 
+  const data = await AD.find({activation:true}) 
   res.status(200).json(
-    json_format(200, ad)
+    json_format(200, data)
   )
 })
 
 // ID 를 기준으로 특정 AD 가져오기
 ad_router.post("/find", async (req, res)=>{
-  const result = await find_AD(req.body.ID)
+  const data = await find_AD(req.body.ID)
+  
   if(!result){
     return res.status(404).json(
       json_format(404)
@@ -35,7 +36,7 @@ ad_router.post("/find", async (req, res)=>{
     )
   }else{
     return res.status(200).json(
-      json_format(200)
+      json_format(200, data)
     )
   }
 })
@@ -90,7 +91,6 @@ ad_router.post("/add", async (req, res) => {
       )
     })
   } catch (error) {
-    console.log(error)
     res.status(400).json(
       json_format(400)
     )
@@ -110,7 +110,7 @@ ad_router.post("/modify", async (req, res)=>{
       {ID: req.body.ID},
       {$set:{text_short: req.body.text_short, text_long: req.body.text_long, count: req.body.count}})
     res.status(200).json(
-      json_format(200)
+      json_format(200, result)
     )
   })
 })
@@ -129,7 +129,7 @@ ad_router.post("/delete", async (req, res)=>{
       )
     }
     res.status(200).json(
-      json_format(200)
+      json_format(200, result)
     )
   })
 })
@@ -144,7 +144,7 @@ ad_router.get("/detail", async (req, res)=>{
       )
     }
     res.status(200).json(
-      json_format(200, {result})
+      json_format(200, result)
     )
   })
 })
